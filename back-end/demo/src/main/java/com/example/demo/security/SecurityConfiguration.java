@@ -63,6 +63,7 @@ public class SecurityConfiguration {
 		
 		http
 		.authorizeRequests()
+		.antMatchers("/h2-console/**").permitAll()
 		.antMatchers(HttpMethod.POST, "/user", "/Queries", "/excreate", "/exupdate/**", "/exdelete/**", "/exusers", "/user/forgottenPasswordGetByEmail")
 	    .permitAll()
 	    .and()
@@ -81,7 +82,7 @@ public class SecurityConfiguration {
 				UsernamePasswordAuthenticationFilter.class)
 		.addFilterBefore(new JWTAuthenticationFilter(), 
 				UsernamePasswordAuthenticationFilter.class);
-
+				http.headers().frameOptions().disable();
 		return http.build();
 	}
 	
