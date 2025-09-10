@@ -18,11 +18,11 @@ Features developed include;
 
 - Homepage
 - Registration
-- Login
+- Login -> Ehtesham, Amal 
 - After Login Menu
 - Physical Health Tracker
 - Mental Health Quiz
-- Nutrional Health Tracker; currently does not contain advice, will be changed 
+- Nutrional Health Tracker; currently does not contain advice, will be changed -> Amal 
 - After Nutritional Health Tracker Menu
 - About Us?
 - 'My Tips' = generic tips for each of the different type of health and well-beinf
