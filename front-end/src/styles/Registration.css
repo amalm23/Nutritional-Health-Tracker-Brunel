@@ -1,0 +1,111 @@
+.reg__label {
+  font-size: 24px;
+}
+
+.register__form {
+  width: 50%;
+  height: 100%;
+  max-width: 340px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 0 20px -10px #000;
+  padding: 20px 30px;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.register__title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-bottom: 4px;
+  color: #0b1986;
+  border-bottom: 2px solid #0b1986;
+}
+
+.register__button {
+  float: middle;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  border: 2px solid #0b1986;
+  background: 0;
+  color: #0b1986;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 18px;
+}
+
+.register__button:hover {
+  background-color: #0b1986;
+  color: white;
+}
+
+.register__label {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0b1986;
+}
+
+.register__input {
+  width: 100%;
+  padding: 10px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  transition: all 0.3s;
+  border-bottom: 2px solid #0b1986;
+  font-size: 14px;
+}
+
+
+.register__container {
+  width: 100%;
+  padding: 10px;
+  margin-left: 12px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  transition: all 0.3s;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .register__form {
+    width: 80%;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .register__form {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    overflow-y: hidden;
+  }
+
+
+  .register__title {
+    font-size: 2rem;
+  }
+
+  .register__label {
+    font-size: 0.9rem;
+  }
+
+  .register__input {
+    font-size: 12px;
+  }
+}

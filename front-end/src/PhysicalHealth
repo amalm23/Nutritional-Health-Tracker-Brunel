@@ -1,0 +1,326 @@
+import axios from "axios";
+import { useRef, useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import font_rend from './Brunel PAL Title thing.PNG';
+
+export default function NutrionalHealthForm() {
+    
+    const [errorMsg, setErrorMsg] = useState('');
+    const [loggedInUser, setLoggedInUser] = useOutletContext();
+    const [isSubmitted, setIsSubmitted] = useState('');
+    
+    const [field, setField] = useState ([{
+        date: '',
+        foodName: '',
+        foodCalories: '',
+        foodConsumption: '',
+        drinkName: '',
+        drinkCalories: '',
+        drinkConsumption: '',
+        timeOfConsumption: '',
+        a: '',
+    }])
+
+    // const date = useRef();
+    // const foodName = useRef();
+    // const calories = useRef();
+    // const consumption = useRef();
+    // // const timeOfDay = useRef();
+    // const drinkName = useRef();
+    // const drinkCalories = useRef();
+    // const drinkConsumption = useRef();
+    // const timeOfConsumption = useRef();
+
+    console.log(loggedInUser);
+
+    const remove = () => {
+        setField([
+            {
+                date: "",
+                foodName: "",
+                foodCalories: "",
+                foodConsumption: "",
+                drinkName: "",
+                drinkCalories: "",
+                drinkConsumption: "",
+                timeOfConsumption: ""
+            }])
+    }
+
+    const addFields = () => {
+        setField([
+            ...field, {
+                date: "",
+                foodName: "",
+                foodCalories: "",
+                foodConsumption: "",
+                drinkName: "",
+                drinkCalories: "",
+                drinkConsumption: "",
+                timeOfConsumption: ""
+            }
+        ])
+    }
+
+    const removeFields = (index) => {
+        const rowsA = [...field];
+        rowsA.splice(index,1);
+        setField(rowsA);
+    }
+
+    const handleChange = (index, e) => {
+        const newValues = [...field];
+        newValues[index][e.target.name] = e.target.value;
+        setField(newValues);
+    }
+
+    const options = [
+        {
+            label: "Breakfast",
+            value: "breakfast"
+        },
+        {
+            label: "Lunch",
+            value: "lunch"
+        },
+        {
+            label: "Dinner",
+            value: "dinner"
+        },
+        {
+            label: "Snack",
+            value: "snack"
+        },
+        {
+            label: "Other",
+            value: "other"
+        },
+    ]
+
+        const error = {
+        dateError: "Please insert a date",
+        foodnError : "Please type in a food name",
+        caloriesError: "Please type in calories",
+        caloriesFormattingError: "Please insert calories as a number",
+        consumptionError: "Please select how much consumed",
+        drinkNameError: "Please type in the drink name",
+        drinkCaloriesError: "Please type in the drink calories",
+        drinkCaloriesFormattingError: "Please insert calories as a number",
+        drinkConsumptionError: "Please select how much drink consumed",
+        timeOfConsumptionError: "Please select a time"
+       }
+
+       const validateForm = () => {
+        let formValid = false;
+        if (field.date.validity.valueMissing &&
+            field.foodName && field.foodCalories.current.validity.valueMissing 
+            && field.foodConsumption.current.validity.valueMissing && field.drinkName.current.validity.valueMissing 
+            && field.drinkConsumption.current.validity.valueMissing && field.timeOfConsumption.current.validity.valueMissing) {
+            alert("Please insert all details.");
+        }
+        if (isNaN(field.foodCalories.current.value)){
+            setErrorMsg({name: "calories", message: error.caloriesFormattingError})
+        }
+        else if (isNaN(field.drinkCalories.current.value)){
+            setErrorMsg({name: "drinkCalories", message: error.drinkCaloriesFormattingError})
+        }
+        else if (field.date.current.validity.valueMissing){
+            setErrorMsg({name: "date", message: error.date})
+        }
+                else if (field.foodName.current.validity.valueMissing) {
+                    setErrorMsg({name: "foodName", message: error.foodnError})
+                }
+                else if (field.foodCalories.current.validity.valueMissing) {
+                    setErrorMsg({name: "calories", message: error.caloriesError})
+                }
+                else if (field.foodConsumption.current.validity.valueMissing) {
+                    setErrorMsg({name: "consumption", message: error.consumptionError})
+                }
+                else if (field.drinkName.current.validity.valueMissing) {
+                    setErrorMsg({name: "drinkName", message: error.drinkNameError})
+                }
+                else if (field.drinkCalories.current.validity.valueMissing) {
+                    setErrorMsg({name: "drinkCalories", message: error.drinkCaloriesError})
+                }
+                else if (field.drinkConsumption.current.validity.valueMissing) {
+                    setErrorMsg({name: "drinkConsumption", message: error.drinkConsumptionError})
+                }
+                else if (field.timeOfConsumption.current.validity.valueMissing) {
+                    setErrorMsg({name: "timeOfConsumption", message: error.timeOfConsumptionError})
+                }
+       else{
+        setErrorMsg('');
+        formValid = true;
+        }
+        return formValid;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            const formData = {
+                email : loggedInUser,
+                dateOfConsumption: field.date,
+                foodName: field.foodName,
+                calories: field.foodCalories,
+                consumption: field.consumption,
+                drinkName: field.drinkName,
+                drinkCalories: field.drinkCalories,
+                drinkConsumption: field.drinkConsumption,
+                // timeOfDay: timeOfDay.current.value,
+                 timeOfConsumption: field.timeOfConsumption
+            }
+            axios({
+                credentials: 'include',
+                method: 'post',
+                url: 'http://localhost:8080/api/v1/nutrionLogin/nutrionalForm',
+                data: formData
+             })
+             .then(response=>{
+                console.log(response);
+                if (response.status === 200 || 201){
+                    alert("Submitted successfully.")
+                    setIsSubmitted(true);
+                }else{
+                    alert("Submission error!")
+                    setIsSubmitted("");
+                }
+            }).then(()=>{
+    
+            })
+            .catch(error=>{
+                alert("Submission error!")
+                setIsSubmitted("");
+                console.log(error);
+            })
+            
+        }
+        }
+
+   
+    const errorMessageAppear = (name) => (
+        name === errorMsg.name && (
+            <div className = "errorMessage"> <font color = "red">{errorMsg.message}</font></div>
+        )
+    )
+
+        const renderNutrionForm = (
+        <div>
+            {/* <img src = {font_rend} alt = "Brunel Pal Logo" />  */}
+            <h1> <center> Nutritional Health Form </center> </h1>
+            <h2> Remember to check all responses before clicking on the Submit Button! </h2>
+            <form method = "post" className="nutrionalhealthform" noValidate onSubmit={handleSubmit}>    
+            {field.map((element, index) => (  
+            <div className = "formform" key = {index}>                                                                                                                                                                                                                                                                                                                                             
+             <div className="input-container">
+            <label className="labelText"> Date of Consumption:</label>
+            <input type="date" id="date" name="date" required  maxLength={20} value = {element.date || ""} />
+            {errorMessageAppear("date")}
+             </div>
+
+<div className="input-container">
+            <label className="labelText"> Name of Food:</label>
+            <input type="text" id="foodName" name="foodName" required placeholder="E.g Apple" value = {element.foodName || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("foodName")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> Calories Intake:</label>
+            <input type="text" id="foodCalories" name="foodCalories" required placeholder="E.g. 200 kcal" value = {element.foodCalories || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("calories")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> How many eaten?:</label>
+            <input type="number" id="foodConsumption" name="foodConsumption" required placeholder="E.g. 1 apple" value= {element.foodConsumption || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("consumption")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> Name of Drink:</label>
+            <input type="text" id="drinkName" name="drinkName" required placeholder="E.g Water" value = {element.drinkName || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("drinkName")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> Calories Intake:</label>
+            <input type="decimal" id="drinkCalories" name="drinkCalories" required placeholder="E.g. 200" value = {element.drinkCalories || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("drinkCalories")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> How many drunk?:</label>
+            <input type="number" id="drinkConsumption" name="drinkConsumption" required placeholder="E.g. 0.5 of a glass" value = {element.drinkConsumption || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("drinkConsumption")}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> What time of day was this?:</label>
+            <select id= "mealSelect">
+                <option value = "breakfast"> Breakfast</option>
+                <option value = "lunch"> Lunch</option>
+                <option value = "lunch"> Dinner </option>
+                <option value = "lunch"> Snack </option>
+                <option value = "lunch"> Other </option>
+            </select>
+            {/* <input type="text" id="calories" name="calories" required placeholder="E.g. Breakfast" value = {nutrionForm.timeOfDay} onChange = {(e) => onUpdateField(e, 'timeOfDay')}/> */}
+            {/* {renderErrorMessage("repPassword")} */}
+</div>
+
+<div className="input-container">
+            <label className="labelText"> What time was this consumed?:</label>
+            <input type="time" id="timeOfConsumption" name="timeOfConsumption" required placeholder="E.g. 0.5 of a glass" value = {element.timeOfConsumption || ""} onChange={e => handleChange(index, e)}/>
+            {errorMessageAppear("timeOfConsumption")}
+</div>
+ {
+    index ? 
+    <button type = "button" className = "remove" onClick={() => removeFields(index)}> Remove</button> : null
+ }
+</div> 
+))}  
+</form>
+
+<div className = "button-container">
+            <button className = "btn-primary" type= "submit" onClick={() => addFields()}> Add </button>
+            <button className= "btn-primary" type= "submit"> Submit </button>
+            <button className = "btn-primary" type= "reset" onClick={remove}> Reset</button>
+            </div>
+            <div> 
+            <br/><br/>
+            <div className="nav__container">
+            <br></br>
+            <Link className="nav__link" to={'/physicalhealthform'}>Physical Health Form</Link>
+            <br></br>
+            <br></br>
+<Link className="nav__link" to={'/mentalhealthquiz'}>Mental Health Quiz </Link>
+<br></br>
+<br></br>
+<Link className="nav__link" to={'/login'}> Go to menu after Login</Link>
+<br></br>
+</div>
+<br/><br/>
+            </div>
+        </div>
+        )
+
+        const fillAnother = () => {
+            alert("Fill fill");
+            setIsSubmitted(false);
+        }
+
+    return (
+        <div className="app2">
+        <div className = "loginForm2">
+            {isSubmitted ? <div>  
+            <h1> <center>Thank you for submitting! What next? </center></h1> 
+            <Link to= {'/showPastNutrionalRecords'} className="nav__link"> <font color = "blue"><b>See previous inputs </b></font></Link>
+            <h3> <a href= "/mentalhealthquiz"> <font color = "blue"> <center>Mental Health Quiz</center> </font></a></h3> 
+            <h3> <a href= "/physicalhealthtracker">  <font color = "blue"><center>Physical Health Tracker</center></font> </a></h3> 
+            <h3> <a onClick={fillAnother}> <font color = "blue"> <center>Fill another Tracker </center> </font></a></h3> 
+            <Link to={'/login'} className="nav-link" > <font color = "blue"><b>Go to page before Logout </b></font></Link>
+            </div> : renderNutrionForm}
+        </div>
+    </div>
+    );
+    }

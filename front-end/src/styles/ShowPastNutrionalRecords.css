@@ -1,0 +1,129 @@
+/* Table Styles */
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 2rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table__row:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.table__row:hover {
+  background-color: #f2f2f2;
+}
+
+/* Table Header Styles */
+
+.table__header {
+  background-color: #f2f2f2;
+  color: #444;
+  border: 1px solid #ddd;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 14px;
+}
+
+/* Table Body Styles */
+
+.table__body {
+  border: 1px solid #ddd;
+}
+
+.table__body td,
+.table__body th {
+  border: 1px solid #ddd;
+  padding: 12px 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.table__body td {
+  font-size: 14px;
+}
+
+.table__body th {
+  font-size: 16px;
+}
+
+/* Table Actions Styles */
+
+.table__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.table__button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tablecontainer {
+  padding: 56px 0;
+  margin: 0 auto;
+  height: 300vh;
+}
+
+.table__button:hover {
+  background-color: #3e8e41;
+}
+
+.table__button--delete {
+  background-color: #d9534f;
+}
+
+.table__button--delete:hover {
+  background-color: #c9302c;
+}
+
+.table__button__delete {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.table__button:hover {
+  background-color: #3e8e41;
+}
+
+.table__button__delete:hover {
+  background-color: #c9302c;
+}
+
+
+
+/* Responsive Table Styles */
+
+@media screen and (max-width: 768px) {
+  .table__header,
+  .table__body th,
+  .table__body td {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

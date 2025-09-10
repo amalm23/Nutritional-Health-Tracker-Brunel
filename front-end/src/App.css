@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.loginNav {
+  flex-direction: column;
+}
+
+.login-link {
+  float: left;
+  display: flex;
+  text-align: center;
+  padding: 14px 16px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #0b1986;
+  color: yellow;
+}
+
+.btn-primary {
+  color: yellow;
+  background-color: #0b1986;
+  justify-content: space-between;
+  float: middle;
+  padding: 0 24px;
+}
+.logout-btn {
+  float: left;
+  display: flex;
+  text-align: center;
+  padding: 14px 16px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: yellow;
+  color:#0b1986;
+
+}
+
+.nutrionalMenu {
+  flex-direction: row;
+  display: inline;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* .emInput{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+} */
+
