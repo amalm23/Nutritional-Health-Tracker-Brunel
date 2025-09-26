@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Nutritional-Health-Tracker-Brunel/static/css/main.9af164d4.css",
+    "main.js": "/Nutritional-Health-Tracker-Brunel/static/js/main.2cf832d7.js",
+    "static/js/787.22edae46.chunk.js": "/Nutritional-Health-Tracker-Brunel/static/js/787.22edae46.chunk.js",
+    "static/media/mental_health.jpeg": "/Nutritional-Health-Tracker-Brunel/static/media/mental_health.5d242a8160befdd1ff27.jpeg",
+    "static/media/p1bm5844cb6oacnd1std183s12gt6.jpg.optimal.jpg": "/Nutritional-Health-Tracker-Brunel/static/media/p1bm5844cb6oacnd1std183s12gt6.jpg.optimal.21780d4053aa24eac623.jpg",
+    "static/media/Teamwork.jpg": "/Nutritional-Health-Tracker-Brunel/static/media/Teamwork.bd364949ec141494cd8f.jpg",
+    "static/media/BMI-Chart.gif": "/Nutritional-Health-Tracker-Brunel/static/media/BMI-Chart.da83cac4a8afdecfaf8b.gif",
+    "static/media/Capture proto.PNG": "/Nutritional-Health-Tracker-Brunel/static/media/Capture proto.6a6a18f612a54383b39f.PNG",
+    "static/media/bg-img.jpeg": "/Nutritional-Health-Tracker-Brunel/static/media/bg-img.c87e30694e1ad6d4f9fb.jpeg",
+    "static/media/Brunel PAL Title thing.PNG": "/Nutritional-Health-Tracker-Brunel/static/media/Brunel PAL Title thing.20e591735740e33b5a91.PNG",
+    "static/media/myBrunelPal.svg": "/Nutritional-Health-Tracker-Brunel/static/media/myBrunelPal.e8a60c4ecd702c0d6d07c3406e238f99.svg",
+    "static/media/unnamed.png": "/Nutritional-Health-Tracker-Brunel/static/media/unnamed.d6e578204367ad3b0cf3.png",
+    "index.html": "/Nutritional-Health-Tracker-Brunel/index.html",
+    "main.9af164d4.css.map": "/Nutritional-Health-Tracker-Brunel/static/css/main.9af164d4.css.map",
+    "main.2cf832d7.js.map": "/Nutritional-Health-Tracker-Brunel/static/js/main.2cf832d7.js.map",
+    "787.22edae46.chunk.js.map": "/Nutritional-Health-Tracker-Brunel/static/js/787.22edae46.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9af164d4.css",
+    "static/js/main.2cf832d7.js"
+  ]
+}
