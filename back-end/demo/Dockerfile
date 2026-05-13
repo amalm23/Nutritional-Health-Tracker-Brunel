@@ -16,7 +16,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # --- 2. Run Stage: Use a lighter JDK-only image to run the JAR ---
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17
 EXPOSE 8080
 # The JAR file name is based on your pom.xml artifact and version.
 # Make sure to replace <your-app-name>-<version> with the actual name.
