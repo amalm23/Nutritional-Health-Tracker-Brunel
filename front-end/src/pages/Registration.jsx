@@ -46,7 +46,7 @@ export default function Registration() {
 
     if (validateForm()) {
       axios
-        .post("/user", {
+        .post("https://nutritional-health-tracker-brunel-2.onrender.com/user", {
           firstname: firstname.current.value,
           lastname: lastname.current.value,
           birthday: birthday.current.value,
