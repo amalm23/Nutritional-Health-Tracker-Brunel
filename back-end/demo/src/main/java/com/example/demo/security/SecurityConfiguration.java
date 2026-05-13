@@ -93,7 +93,7 @@ public class SecurityConfiguration {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 				.allowedMethods("POST", "GET", "DELETE", "PATCH", "PUT")
-				.allowedOrigins("http://localhost:3000", "https://nutritional-health-tracker-brunel-1.vercel.app/",
+				.allowedOrigins("http://localhost:3000", "https://nutritional-health-tracker-brunel-1.vercel.app",
 				"https://nutritional-health-tracker-brunel-2.onrender.com", "http://localhost:8080");
 			}
 		};
