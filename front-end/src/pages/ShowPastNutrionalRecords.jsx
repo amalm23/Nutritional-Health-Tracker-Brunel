@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react"
 import axios from "axios";
 import {Link} from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import EditableRow from "./EditableRow";
 import ReadRow from "./ReadRow";
 import '../styles/ShowPastNutrionalRecords.css'
@@ -37,16 +37,16 @@ const [formResponses, setFormResponses] = useState([]);
     console.log(formResponses);
 
 
-    const [addData, setAddFormData] = useState ({
-        dateOfConsumption : "",
-        foodName : "",
-        calories : "",
-        consumption: "",
-        drinkName : "",
-        drinkCalories : "",
-        drinkConsumption: "",
-        timeOfConsumption: "",
-    })
+    // const [addData, setAddFormData] = useState ({
+    //     dateOfConsumption : "",
+    //     foodName : "",
+    //     calories : "",
+    //     consumption: "",
+    //     drinkName : "",
+    //     drinkCalories : "",
+    //     drinkConsumption: "",
+    //     timeOfConsumption: "",
+    // })
 
     const [editData, setEditData] = useState ({
         dateOfConsumption : "",
@@ -61,15 +61,15 @@ const [formResponses, setFormResponses] = useState([]);
 
     const [editId, setEditID] = useState(null);
 
-    const handleAddFormChange = (e) => {
-        e.preventDefault();
-        const field = e.target.getAttribute("name");
-        const fieldValue = e.target.value;
+    // const handleAddFormChange = (e) => {
+    //     e.preventDefault();
+    //     const field = e.target.getAttribute("name");
+    //     const fieldValue = e.target.value;
 
-        const newData = {...addData};
-        newData[field] = fieldValue;
-        setAddFormData(newData);
-    }
+    //     const newData = {...addData};
+    //     newData[field] = fieldValue;
+    //     setAddFormData(newData);
+    // }
 
     const handleEditFormChange = (e) => {
         e.preventDefault();
@@ -81,24 +81,24 @@ const [formResponses, setFormResponses] = useState([]);
         setEditData(newData);
     }
 
-    const handleAddForm = (e) => {
-        e.preventDefault();
-        const addedData = {
-          formID: nanoid(),
-            dateOfConsumption: addData.dateOfConsumption,
-            foodName : addData.foodName,
-            calories : addData.calories,
-            consumption: addData.consumption,
-            drinkName : addData.drinkName,
-            drinkCalories : addData.drinkCalories,
-            drinkConsumption: addData.drinkConsumption,
-            timeOfConsumption: addData.timeOfConsumption
-        };
+    // const handleAddForm = (e) => {
+    //     e.preventDefault();
+    //     const addedData = {
+    //       formID: nanoid(),
+    //         dateOfConsumption: addData.dateOfConsumption,
+    //         foodName : addData.foodName,
+    //         calories : addData.calories,
+    //         consumption: addData.consumption,
+    //         drinkName : addData.drinkName,
+    //         drinkCalories : addData.drinkCalories,
+    //         drinkConsumption: addData.drinkConsumption,
+    //         timeOfConsumption: addData.timeOfConsumption
+    //     };
 
-        const newData = [...formResponses, addedData]
-        setFormResponses(newData);
+    //     const newData = [...formResponses, addedData]
+    //     setFormResponses(newData);
 
-    }
+    // }
 
     const handleEditForm = (e) => {
         e.preventDefault();

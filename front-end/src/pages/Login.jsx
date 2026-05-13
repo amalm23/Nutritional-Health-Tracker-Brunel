@@ -12,7 +12,7 @@ export default function Login(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [loggedInUser, setLoggedInUser] = useOutletContext();
   const [userData, setUserData] = useState("");
-  const [setIsSubmitted] = useState("");
+  const [, setIsSubmitted] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [errorEmail,setErrorEmail]=useState(false);
@@ -28,7 +28,7 @@ export default function Login(props) {
   };
 
   const handleChnage =(props)=>{
-    if(props.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+    if(props.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)){
       setErrorEmail(false)
     }else{
       setErrorEmail(true)

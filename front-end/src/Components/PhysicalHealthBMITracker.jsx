@@ -7,22 +7,23 @@ import Home from "../pages/Home";
 
 export default function PhysicalHealthBMITracker() {
     
-    const [bmiMessage] = useState('');
+    // const [bmiMessage] = useState('');
     const [loggedInUser] = useOutletContext();
     const [isSubmitted, setIsSubmitted] = useState('');
     const weight = useRef();
     const height = useRef();
     const [finalBMI, setFinalBMI] = useState('');
 
+
      console.log(loggedInUser);
 
-        const messageBMI = {
-        underWeightMessage: "You are UNDERWEIGHT, consider going to a doctor and eat more, take care of your health!",
-        healthyWeightMessage: "You are HEALTHY, well done! Continue what works for you :).",
-        overWeightMessage: "You are OVERWEIGHT, please consider reducing intake and exercising more.",
-        obseseMessage: "You are OBSESE, be careful, consider going to a doctor.",
-        severlyObseseMessage: "You are SEVERLY OBSESE, go to a doctor or healthcare provider to assess health and prescribe treatment if need be.",
-       }
+      //   const messageBMI = {
+      //   underWeightMessage: "You are UNDERWEIGHT, consider going to a doctor and eat more, take care of your health!",
+      //   healthyWeightMessage: "You are HEALTHY, well done! Continue what works for you :).",
+      //   overWeightMessage: "You are OVERWEIGHT, please consider reducing intake and exercising more.",
+      //   obseseMessage: "You are OBSESE, be careful, consider going to a doctor.",
+      //   severlyObseseMessage: "You are SEVERLY OBSESE, go to a doctor or healthcare provider to assess health and prescribe treatment if need be.",
+      //  }
 
        const validateForm = () => {
         let formValid = false;
@@ -58,11 +59,6 @@ export default function PhysicalHealthBMITracker() {
       }
     }
 
-            const bmiMessageAppear = (name) => (
-              name === bmiMessage.name && (
-                  <div className = "nutrionalForm_error"> <font color = "red">{messageBMI.message}</font></div>
-              )
-          )
 
 if (loggedInUser !== "") {
     return (
@@ -136,12 +132,12 @@ if (loggedInUser !== "") {
               : "Check other."}
           </p>
           <p>
-            {(finalBMI >= 18.5) || (finalBMI <=24.9)
+            {(finalBMI >= 18.5) && (finalBMI <=24.9)
               ? "You are HEALTHY, well done! Continue what works for you :)." :
               "Check other."}
           </p>
           <p>
-            {(finalBMI >= 25.0) || (finalBMI <=29.9)
+            {(finalBMI >= 25.0) && (finalBMI <=29.9)
               ? "You are OVERWEIGHT, please consider reducing intake and exercising more." :
               "Check other."}
               {(finalBMI >= 30 && finalBMI <= 39.9)

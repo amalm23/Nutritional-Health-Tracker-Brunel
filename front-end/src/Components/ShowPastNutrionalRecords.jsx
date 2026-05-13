@@ -13,8 +13,6 @@ export default function ShowPastNutrionalRecords() {
 const [loggedInUser] = useOutletContext();
 const [formResponses, setFormResponses] = useState([]);
 
-
-
     useEffect(()=>{
         if(loggedInUser!==""){
             const jwt = sessionStorage.getItem('jwt');

@@ -13,8 +13,8 @@ function MentalHealthQuiz() {
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loggedInUser] = useOutletContext();
-  const [setIsSubmitted] = useState("");
-    const [setErrorMsg] = useState("");
+  const [, setIsSubmitted] = useState("");
+    const [, setErrorMsg] = useState("");
 
 
   const resetQuiz = () => {
