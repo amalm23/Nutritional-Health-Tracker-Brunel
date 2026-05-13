@@ -30,7 +30,7 @@ const PhysicalHealthTracker = () => {
                 url: `http://localhost:8080/${loggedInUser}`,
                 // params: {email: loggedInUser}
                
-            }) .then(resp => setExercises(resp.data))
+            }).then(resp => setExercises(resp.data))
 
                 .catch((err) => {
                   console.log(err);
