@@ -6,7 +6,6 @@ import {GiHamburger} from "react-icons/gi";
 import {AiFillFire} from "react-icons/ai";
 import {FaShoppingBasket} from "react-icons/fa";
 import {BiDrink} from "react-icons/bi";
-import {BiTime} from "react-icons/bi";
 import {TbSunMoon} from "react-icons/tb";
 import Home from "../pages/Home";
 import Captureproto from '../assets/p1bm5844cb6oacnd1std183s12gt6.jpg.optimal.jpg';
@@ -17,10 +16,9 @@ const getInitialState = () => {
   const value = "Breakfast";
   return value;
 }
-const [loading, setLoading] = useState(false);
   const [valueDropDown, setValueDropDown] = useState(getInitialState);
     const [errorMsg, setErrorMsg] = useState('');
-    const [loggedInUser, setLoggedInUser] = useOutletContext();
+    const [loggedInUser] = useOutletContext();
     const [isSubmitted, setIsSubmitted] = useState('');
     const [foodNameError, setFoodNameError] = useState(false);
     const [drinkNameError, setDrinkNameError] = useState(false);

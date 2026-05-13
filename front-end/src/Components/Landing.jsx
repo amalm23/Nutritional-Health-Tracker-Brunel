@@ -1,5 +1,4 @@
 import React from "react";
-import BgImg from "../assets/bg-img.jpeg";
 import "../styles/Landing.css"
 
 function Landing() {

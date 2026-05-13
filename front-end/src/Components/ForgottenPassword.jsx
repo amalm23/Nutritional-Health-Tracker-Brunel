@@ -1,9 +1,6 @@
 import axios from "axios";
 import React, {useRef} from "react";
-import { useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
-import {Link} from "react-router-dom"
-import font_rend from "../assets/Brunel PAL Title thing.PNG";
+import { useState } from "react";
 
 export default function ForgottenPassword () {
 
@@ -16,7 +13,7 @@ export default function ForgottenPassword () {
     const [id, setID] = useState(null);
 
     const [data, setData] = useState([]);
-    const [userData, setUserData] = useState([]); 
+    const [userData] = useState([]); 
 
     const submitForm = (e) => {
       e.preventDefault();

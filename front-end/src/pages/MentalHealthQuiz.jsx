@@ -12,9 +12,9 @@ function MentalHealthQuiz() {
   var [score, setScore] = useState(0);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useOutletContext();
-  const [isSubmitted, setIsSubmitted] = useState("");
-    const [errorMsg, setErrorMsg] = useState("");
+  const [loggedInUser] = useOutletContext();
+  const [setIsSubmitted] = useState("");
+    const [setErrorMsg] = useState("");
 
 
   const resetQuiz = () => {
@@ -29,9 +29,7 @@ function MentalHealthQuiz() {
   };
 const validateScores = () => {
   let scoresValid = false;
-  if (
-    score = 0
-  ) {
+  if (score === 0) {
     alert("Please retake the quiz");
   } else if (isNaN(score)) {
     setErrorMsg({ name: "score", message: "your score was not saved" });

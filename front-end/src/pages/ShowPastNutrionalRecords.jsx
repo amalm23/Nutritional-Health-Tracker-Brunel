@@ -6,12 +6,11 @@ import { nanoid } from "nanoid";
 import EditableRow from "./EditableRow";
 import ReadRow from "./ReadRow";
 import '../styles/ShowPastNutrionalRecords.css'
-import { faPray } from "@fortawesome/free-solid-svg-icons";
 import Captureproto from "../assets/p1bm5844cb6oacnd1std183s12gt6.jpg.optimal.jpg"
 export default function ShowPastNutrionalRecords() {
 
 
-const [loggedInUser, setLoggedInUser] = useOutletContext();
+const [loggedInUser] = useOutletContext();
 const [formResponses, setFormResponses] = useState([]);
 
     useEffect(()=>{

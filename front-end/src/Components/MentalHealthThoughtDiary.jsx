@@ -8,8 +8,8 @@ import Home from "../pages/Home";
 
 export default function MentalHealthThoughtDiary() {
     
-    const [loggedInUser, setLoggedInUser] = useOutletContext();
-    const [isSubmitted, setIsSubmitted] = useState('');
+    const [loggedInUser] = useOutletContext();
+    const [setIsSubmitted] = useState('');
     const thought = useRef();
   
     console.log(loggedInUser);

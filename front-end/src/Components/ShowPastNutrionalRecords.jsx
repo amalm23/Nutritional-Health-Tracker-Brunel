@@ -10,7 +10,7 @@ import ReadNutrionalFormRow from "./ReadNutrionalTableRow";
 export default function ShowPastNutrionalRecords() {
 
 
-const [loggedInUser, setLoggedInUser] = useOutletContext();
+const [loggedInUser] = useOutletContext();
 const [formResponses, setFormResponses] = useState([]);
 
 

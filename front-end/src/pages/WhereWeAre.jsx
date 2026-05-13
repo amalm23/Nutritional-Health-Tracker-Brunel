@@ -1,7 +1,4 @@
 import React from "react";
-import Aboutus from "./Aboutus";
-import Landing from "../Components/Landing";
-import Tips from "../Components/Tips";
 import { ImLocation } from "react-icons/im";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import {AiFillCar} from "react-icons/ai";

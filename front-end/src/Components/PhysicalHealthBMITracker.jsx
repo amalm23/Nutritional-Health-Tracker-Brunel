@@ -7,14 +7,12 @@ import Home from "../pages/Home";
 
 export default function PhysicalHealthBMITracker() {
     
-    const [bmiMessage, setBMIMessage] = useState('');
-    const [loggedInUser, setLoggedInUser] = useOutletContext();
+    const [bmiMessage] = useState('');
+    const [loggedInUser] = useOutletContext();
     const [isSubmitted, setIsSubmitted] = useState('');
     const weight = useRef();
     const height = useRef();
     const [finalBMI, setFinalBMI] = useState('');
-  
-    const [errorMessage, setErrorMsg] = useState('');
 
      console.log(loggedInUser);
 

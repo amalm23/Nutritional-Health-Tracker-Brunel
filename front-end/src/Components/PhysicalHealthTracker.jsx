@@ -8,7 +8,7 @@ import { useOutletContext } from "react-router-dom";
 
 const PhysicalHealthTracker = () => {
   const [exercises, setExercises] = useState([{ date: "", exerciseName: "", exerciseTime: "" }]);
-  const [loggedInUser, setLoggedInUser] = useOutletContext();
+  const [loggedInUser] = useOutletContext();
 
   // useEffect(() => {
   //   axios.get("http://localhost:8080/exusers")

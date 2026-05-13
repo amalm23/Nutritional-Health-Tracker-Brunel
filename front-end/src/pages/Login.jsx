@@ -12,7 +12,7 @@ export default function Login(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [loggedInUser, setLoggedInUser] = useOutletContext();
   const [userData, setUserData] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState("");
+  const [setIsSubmitted] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [errorEmail,setErrorEmail]=useState(false);

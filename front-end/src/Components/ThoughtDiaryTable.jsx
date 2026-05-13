@@ -10,7 +10,7 @@ import ReadThoughtDiaryRow from "./ReadThoughtDiaryRow";
 export default function ThoughtDiaryTable() {
 
 
-const [loggedInUser, setLoggedInUser] = useOutletContext();
+const [loggedInUser] = useOutletContext();
 const [formResponses, setFormResponses] = useState([]);
 
 useEffect(() => {

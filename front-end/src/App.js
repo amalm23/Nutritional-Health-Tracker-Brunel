@@ -1,5 +1,5 @@
 import "./App.css";
-import {Link, Outlet} from "react-router-dom"
+import {Outlet} from "react-router-dom"
 import React, {useState} from "react"
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
